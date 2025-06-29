@@ -39,10 +39,6 @@ export function FeedbackForm() {
   });
 
   async function onSubmit(values: FeedbackSchema) {
-    if (values.rating === 0) {
-      form.setError("rating", { type: "manual", message: "Please select a rating." });
-      return;
-    }
     setIsSubmitting(true);
     const result = await submitFeedback(values);
     setIsSubmitting(false);
