@@ -60,13 +60,16 @@ export function FeedbackForm() {
   
   if (isSubmitted) {
     return (
-      <Card className="animate-in fade-in-50 duration-500">
-        <CardContent className="p-8 text-center flex flex-col items-center">
-            <CheckCircle className="w-16 h-16 mx-auto text-green-500 mb-4" />
-            <h2 className="text-2xl font-bold font-headline mb-2">Thank You!</h2>
-            <p className="text-muted-foreground">Your feedback has been submitted successfully.</p>
-        </CardContent>
-      </Card>
+      <div className="flex flex-col items-center gap-4">
+        <Card className="animate-in fade-in-50 duration-500 w-full">
+          <CardContent className="p-8 text-center flex flex-col items-center">
+              <CheckCircle className="w-16 h-16 mx-auto text-primary mb-4" />
+              <h2 className="text-2xl font-bold font-headline mb-2">Thank You!</h2>
+              <p className="text-muted-foreground">Your feedback has been submitted successfully.</p>
+          </CardContent>
+        </Card>
+        <p className="text-muted-foreground">email me at bananamonke325@gmail.com</p>
+      </div>
     );
   }
 
