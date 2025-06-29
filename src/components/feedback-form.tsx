@@ -18,7 +18,8 @@ import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { submitFeedback, feedbackSchema, type FeedbackSchema } from "@/app/actions";
+import { submitFeedback } from "@/app/actions";
+import { feedbackSchema, type FeedbackSchema } from "@/app/schemas";
 import { StarRating } from "./star-rating";
 import { Card, CardContent } from "@/components/ui/card";
 
