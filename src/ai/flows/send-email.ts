@@ -37,16 +37,21 @@ const sendFeedbackFlow = ai.defineFlow(
         : payload.rating < 5
         ? 0xf1c40f // Yellow
         : 0x2ecc71; // Green
+    
+    const fields = [
+      { name: 'Email', value: `||${payload.email}||`, inline: true },
+      { name: 'Type', value: payload.type, inline: true },
+      { name: 'Rating', value: `${ratingStars} (${payload.rating}/5)`, inline: true },
+    ];
+
+    if (payload.message) {
+      fields.push({ name: 'Message', value: payload.message.substring(0, 1024) });
+    }
 
     const embed = {
       title: `New ${payload.type.charAt(0).toUpperCase() + payload.type.slice(1)} Submission`,
       color: embedColor,
-      fields: [
-        { name: 'Email', value: `||${payload.email}||`, inline: true },
-        { name: 'Type', value: payload.type, inline: true },
-        { name: 'Rating', value: `${ratingStars} (${payload.rating}/5)`, inline: true },
-        { name: 'Message', value: payload.message.substring(0, 1024) },
-      ],
+      fields: fields,
       timestamp: new Date().toISOString(),
       footer: {
         text: "Feedback via Rat App"
