@@ -1,6 +1,6 @@
 "use server";
 
-import { sendEmail } from "@/ai/flows/send-email";
+import { sendFeedback } from "@/ai/flows/send-email";
 import { feedbackSchema, type FeedbackSchema } from "./schemas";
 
 export async function submitFeedback(data: FeedbackSchema) {
@@ -16,7 +16,7 @@ export async function submitFeedback(data: FeedbackSchema) {
 
   try {
     console.log("Submitting feedback:", parsedData.data);
-    await sendEmail({
+    await sendFeedback({
       email: parsedData.data.email,
       type: parsedData.data.type,
       message: parsedData.data.message,
